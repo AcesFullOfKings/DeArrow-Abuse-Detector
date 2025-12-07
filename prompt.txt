@@ -1,26 +1,36 @@
-DeArrow is a YouTube extension where any user can submit replacement titles for existing videos. User-submitted titles should not contain any inappropriate or offensive language, nor should they disparage the video creator. Swearing may be acceptable in educational contexts, for example "History of the word 'Fuck'"; but swearing at someone or something, or used as an adverb or adjective, is probably not ok. What we're looking for is that the title neutrally describes the content of the video, regardless of any judgement of the content itself.
+DeArrow is a YouTube extension where any user can submit replacement titles for existing videos. User-submitted titles should not contain inappropriate or offensive language, nor should they disparage the video creator. We want a title which accurately describes or summarises the content of the video, regardless of the video content itself.
 
-Your job is to evaluate the appropriateness of a user-submitted YouTube video title. Any title which attempts to comment on the video, pass judgement on the content, label it subjectively (e.g. as clickbait, bad, or good) recommend that people do or don't watch, etc, should be scored as inappropriate since such titles are not neutral desrciptions of the video content. You should give the title an integer score from 0-3, where 0 is completely acceptable/appropriate, and 3 is the most inappropriate or clearly breaks rules laid out below. For example, a 1 might by something a little edgy, or may be considered mildly rule-breaking but doesn't warrant a warning or ban; a 2 might be something generally unacceptable without being too far over the line - we may decide to issue a warning for a 2; a 3 would be something blatantly or seriously unacceptable, obvious trolling, or use of offensive language that would likely warrant a DeArrow ban for abuse. 
+You will evaluate the appropriateness of a user-submitted YouTube video title. You will give the title an integer score from 0-3, where 0 is acceptable/appropriate, and 3 is the most inappropriate or clearly breaks rules laid out below. For example, 1 is a title mildly rule-breaking (we may remove titles marked as 1), but doesn't warrant a warning or ban; a 2 is something generally unacceptable without being too far over the line (we may issue a warning for a 2); a 3 is something seriously unacceptable, obvious trolling/offensive language that would likely warrant a DeArrow ban for abuse.
 
-Here are some examples of **rejected** titles, which you should mark as inappropriate. These would score 2s and 3s:
+Any title which attempts to comment on the video, label it (e.g. anything like "this is clickbait/ragebait/brainrot" or "spam/scam/ai generated/ai voice", or even "great video"), or recommend that the viewer does or doesn't watch, etc, should be scored as inappropriate since such titles are not neutral desrciptions of the video content. Basically anything which tries to break the fourth wall to communicate something to the viewer is not appropriate. Titles which look like trolling or are nonsensical/gibberish are inappropriate.
+
+Here are some examples of **rejected** titles, which you should mark as inappropriate and would score 3:
 
 - "Eddie Hall vs Black Belt Karate - Boring fight" ('boring' judges the content so is not neutral)
-- "Trying some discontinued drinks - clickbait" ('clickbait' is not neutral and implicitly recommends that the user not watch)
-- "Two morons talk tech- WAN Show July 25, 2025" ('morons' is not neutral and judges the hosts)
-- "Ellen waffles about YouTube AI generated ideas and power waste" (here 'waffles' is judging the content)
+- "Trying discontinued drinks - clickbait" ('clickbait' implicitly recommends that the user not watch)
+- "Two morons talk tech- WAN Show" ('morons' disparages the hosts)
+- "Ellen waffles about YouTube AI generated ideas" ('waffles' is disparaging)
 - "This channel fucking sucks" (clearly abuse/trolling)
+- "laskjbakajlgbjkaf vvpffgbaj" (nonsense)
 
-Here are some examples of acceptable titles, which you should mark as appropriate. These would all score 0:
+Here are some examples of acceptable/good titles, which you should mark as appropriate and would all score 0:
 
-- "5 officers get fired after having sex on duty" (although the video content touches on an nsfw news story, the title is a true and neutral description of the content)
-- "Killstreak - Nicole Is Dead | Reaction" (again, the video discusses death, but we don't care about the content and here the title correctly describes the video, so the title itself is appropriate.)
-- "Walmart is selling counterfeit merch of mine" (as long as the title is true and describes the content, the negative connotation of 'counterfeit' isn't against the rules. As long as Walmart really is selling counterfeits then the title is accurate. We may manually review.)
-- "Looking for bodies in the suicide forest" (this is a controversial and distasteful *video*, but the title itself is a neutral and correct description of the content, so that would get an appropriateness score of 0 since no DeArrow rules have been broken, even if YouTube TOS may be broken or it may be a nsfw video.)
+- "5 officers get fired after having sex on duty" (although the video touches on an nsfw news story, the title is a true and neutral description of the content)
+- "Walmart is selling counterfeit merch of mine" (As long as Walmart really is selling counterfeits then the title is true/accurate. We may manually review)
+- "Looking for bodies in the suicide forest" (this is a controversial and distasteful *video*, but the title itself is a neutral and correct description of the content, so is appropriate since no DeArrow rules have been broken, even if YouTube TOS may be broken or it may be a nsfw video)
+- "Reasons why I like Frieren" (Titles which are expressed in first person from the video creator's perspective, which summarise the opinion they express in the video, are correct)
+- "Why Netflix's Another Life is a bad sci-fi show" (ditto - this summarises the argument/opinion that the video creator discusses in the video)
+- "Sonic Legends Is A Great Fangame" (Also fine, summarises creator's opinion)
+- "History of the word 'Fuck'" (swearing is ok in appropriate/educational contexts)
+- "How Formula 1 Pistons arre Made." (we don't care about spelling/grammar mistakes. this title is not abusive.)
+- "Why you shouldn't buy a Honda Odyssey" (this is the video creator's point which is the subject of the video, therefore the title is correct)
 
-Where a score above 0 is given, also provide a *brief* explanation (in a few words; or MAX 1-2 sentences where absolutely necessary) as to why it's inappropriate. If a title is obviously fine or obviously offensive you don't need to explain it in detail. Don't explain titles scored zero.
+Where a score of 2 or 3 is given, provide a *brief* explanation (just a few words; MAX 1-2 sentences where necessary) citing why it's inappropriate. Don't explain titles scored 0 or 1; the explanation for titles scored 0 or 1 should be blank.
 
-Your response should be in json format, with a key for "score", and "explanation". This json repsponse will be parsed by a python script.
+Non-english titles are fine as long as they follow the rules above in their native language. If a non-english title scores 2 or 3, provide the english translation in your explanation.
 
-The user's title to evaluate now follows:
+Your response should be in json, with a key for "score" and "explanation", which will be parsed in python.
+
+The user's title to evaluate is:
 
 "{title}"
